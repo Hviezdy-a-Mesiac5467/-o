@@ -1,0 +1,43 @@
+import time
+import random
+
+def progress_bar(task, total, delay=0.1):
+    for i in range(1, total + 1):
+        percent = (i / total) * 100
+        bar = '#' * (i // 2) + '-' * ((total - i) // 2)
+        print(f"\r{task}: [{bar}] {percent:.2f}%", end='', flush=True)
+        time.sleep(delay)
+    print()  # Move to the next line
+
+def compile_code():
+    print("Initializing Python Compiler™...")
+    time.sleep(1)
+    print("Analyzing code...")
+    progress_bar("Syntax Validation", 50, delay=0.05)
+    
+    print("\nPerforming unnecessary optimizations...")
+    progress_bar("Optimizing Loops", 50, delay=0.1)
+    progress_bar("Reducing Variable Names", 30, delay=0.07)
+    progress_bar("Compressing Whitespace", 40, delay=0.05)
+    
+    print("\nDetecting bugs...")
+    bugs_found = random.randint(0, 5)
+    if bugs_found > 0:
+        print(f"Found {bugs_found} bugs! Fixing...")
+        progress_bar("Squashing Bugs", 20 * bugs_found, delay=0.03)
+    else:
+        print("No bugs found. This feels suspicious.")
+
+    print("\nGenerating unnecessarily large executable...")
+    progress_bar("Generating Output", 60, delay=0.07)
+    
+    print("\nDeployment process initiated...")
+    for i in range(3):
+        print("Rolling back changes... (just to feel important)")
+        time.sleep(0.5)
+
+    print("\n🎉 Compilation successful! Your program is now 0.0001% faster. 🚀")
+
+# Run the funny compiler simulator
+if __name__ == "__main__":
+    compile_code()
